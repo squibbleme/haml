@@ -26,13 +26,13 @@ module Haml
           require "haml/sass_rails_filter"
         end
 
-        if defined? Erubi
-          require "haml/helpers/safe_erubi_template"
-          Haml::Filters::RailsErb.template_class = Haml::SafeErubiTemplate
-        else
+        # if defined? Erubi
+        #   require "haml/helpers/safe_erubi_template"
+        #   Haml::Filters::RailsErb.template_class = Haml::SafeErubiTemplate
+        # else
           require "haml/helpers/safe_erubis_template"
           Haml::Filters::RailsErb.template_class = Haml::SafeErubisTemplate
-        end
+        # end
         Haml::Template.options[:filters] = { 'erb' => Haml::Filters::RailsErb }
       end
     end
